@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from '@dnd-kit/sortable';
-import { Plus, Check, Play } from 'lucide-react';
+import { Plus, Check, Play, Database } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createQuestion, updateQuestionInTree, deleteQuestionFromTree, addChildToQuestion } from './utils/formUtils';
 import SortableQuestionItem from './components/SortableQuestionItem';
@@ -26,6 +26,48 @@ function App() {
 
   const handleAddParent = () => {
     setQuestions([...questions, createQuestion()]);
+  };
+
+  const handleLoadSample = () => {
+    setQuestions([
+      {
+        id: 'sample-1',
+        text: 'What is your primary programming language?',
+        type: 'Short Answer',
+        mockAnswer: '',
+        children: []
+      },
+      {
+        id: 'sample-2',
+        text: 'Do you have experience with React?',
+        type: 'True/False',
+        mockAnswer: 'True',
+        children: [
+          {
+            id: 'sample-2-1',
+            text: 'How many years of React experience?',
+            type: 'Short Answer',
+            mockAnswer: '',
+            children: []
+          },
+          {
+            id: 'sample-2-2',
+            text: 'Are you familiar with custom hooks?',
+            type: 'True/False',
+            mockAnswer: 'True',
+            children: [
+              {
+                id: 'sample-2-2-1',
+                text: 'Explain how you would implement a useFetch hook.',
+                type: 'Short Answer',
+                mockAnswer: '',
+                children: []
+              }
+            ]
+          }
+        ]
+      }
+    ]);
   };
 
   const handleUpdate = (id, updates) => {
@@ -86,14 +128,25 @@ function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.95 }}
-            className="btn btn-primary"
-            onClick={handleAddParent}
-          >
-            <Plus size={20} /> Add New Question
-          </motion.button>
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn btn-primary"
+              onClick={handleAddParent}
+            >
+              <Plus size={20} /> Add New Question
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn btn-primary"
+              style={{ background: 'linear-gradient(135deg, #10b981, #059669)', boxShadow: '0 0 20px rgba(16, 185, 129, 0.4)' }}
+              onClick={handleLoadSample}
+            >
+              <Database size={20} /> Load Sample
+            </motion.button>
+          </div>
 
           <motion.button
             whileHover={{ scale: questions.length ? 1.02 : 1 }}
