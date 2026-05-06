@@ -1,17 +1,39 @@
-# React + Vite
+# Dynamic Nested Form Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic nested form application built using React and Vite that allows users to create parent and child questions recursively with automatic hierarchical numbering.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Add dynamic parent questions
+- Add nested child questions recursively
+- Supports multiple nesting levels
+- Question types:
+  - Short Answer
+  - True / False
+- Automatic hierarchical numbering
+  - Example:
+    - Q1
+    - Q1.1
+    - Q1.1.1
+    - Q2
+- Delete parent or child questions
+- Form submission with hierarchical preview
+- Local state management
+- Responsive UI
 
-## React Compiler
+## 📌 Project Objective
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project was developed as part of the Nested Form Task assignment. :contentReference[oaicite:0]{index=0}
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# hierarchyBuilders
+- React
+- Vite
+- JavaScript
+- Tailwind CSS
+- React Hooks
+
+## 🌐 Live Deployment
+
+🔗 Live Demo:  
+https://hierarchybuilders67.onrender.com
